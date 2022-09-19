@@ -1,0 +1,7 @@
+/*  ISOLATE SEELECTED SCRIPT
+	Use as toggle function to hide and uhide unselected geometry and subobjects
+ */
+string $currentPanel = `getPanel -withFocus`;
+int $isoSelectState = `isolateSelect -q -state $currentPanel`;
+enableIsolateSelect $currentPanel 1;
+isolateSelect -state (!$isoSelectState) $currentPanel; isolateSelect -loadSelected ($currentPanel);
